@@ -1,4 +1,10 @@
 export default function GeneralInfo() {
+  function submitInfo() {
+    event.preventDefault();
+
+    console.log("Saving info...");
+  }
+
   return (
     <section className="general-info">
       <h2>General Information</h2>
@@ -24,7 +30,10 @@ export default function GeneralInfo() {
           <input type="tel" id="phone" name="phone" placeholder="08012345678" />
         </div>
 
-        <button type="submit">Submit</button>
+        <button className="submit" onClick={submitInfo}>
+          Submit
+        </button>
+        <button className="edit">Edit</button>
       </form>
     </section>
   );
