@@ -1,8 +1,10 @@
 import { useState } from "react";
 
 export default function ExperienceInfo() {
+  // track whether the form is in edit mode or display mode
   const [isEditing, setIsEditing] = useState(true);
 
+  // stores the user's work experience information
   const [info, setInfo] = useState({
     name: "",
     title: "",
@@ -10,23 +12,30 @@ export default function ExperienceInfo() {
     date: "",
   });
 
+  // prevents the page from reloading and switches to display mode
   function submitInfo(event) {
     event.preventDefault();
 
     setIsEditing(false);
   }
 
+  // prevents the page from reloading and switches back to edit mode
   function editInfo(event) {
     event.preventDefault();
 
     setIsEditing(true);
   }
 
+  // update the corresponding property in the info object whenever
+  // the user types into an input field
   function handleChange(event) {
     const { name, value } = event.target;
 
     setInfo({
+      // copies the existing properties from the info object
       ...info,
+
+      // updates only the property whose name matches the input's name attribute
       [name]: value,
     });
   }
@@ -35,9 +44,9 @@ export default function ExperienceInfo() {
     <section className="education-info">
       <h2>Education History</h2>
 
+      {/* render the form while the user is editing */}
       {isEditing ? (
         <form>
-          {/* name */}
           <div className="form-group">
             <label htmlFor="name">Company Name</label>
             <input
@@ -49,7 +58,6 @@ export default function ExperienceInfo() {
             />
           </div>
 
-          {/* title */}
           <div className="form-group">
             <label htmlFor="title">Position Title</label>
             <input
@@ -61,7 +69,6 @@ export default function ExperienceInfo() {
             />
           </div>
 
-          {/* responsibility */}
           <div className="form-group">
             <label htmlFor="responsibility">Responsibilities</label>
             <input
@@ -73,7 +80,6 @@ export default function ExperienceInfo() {
             />
           </div>
 
-          {/* date */}
           <div className="form-group">
             <label htmlFor="date">Date of Employment</label>
             <input
@@ -88,6 +94,7 @@ export default function ExperienceInfo() {
           <button onClick={submitInfo}>Submit</button>
         </form>
       ) : (
+        // display the saved information once the form is submitted
         <div>
           <p>{info.name}</p>
           <p>{info.title}</p>

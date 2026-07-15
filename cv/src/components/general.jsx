@@ -1,31 +1,40 @@
 import { useState } from "react";
 
 export default function GeneralInfo() {
+  // controls whether the form or the submitted information is displayed
   const [isEditing, setIsEditing] = useState(true);
 
+  // stores the user's general information
   const [info, setInfo] = useState({
     name: "",
     email: "",
     phone: "",
   });
 
+  // hide the form and display the submitted information
   function submitInfo(event) {
     event.preventDefault();
 
     setIsEditing(false);
   }
 
+  // show the form so the user can edit their information
   function editInfo(event) {
     event.preventDefault();
 
     setIsEditing(true);
   }
 
+  // update the corresponding property in the info object whenever
+  // the user types into an input field
   function handleChange(event) {
     const { name, value } = event.target;
 
     setInfo({
+      // copy the existing properties
       ...info,
+
+      // update only the property that matches the input's name attribute
       [name]: value,
     });
   }
@@ -34,6 +43,7 @@ export default function GeneralInfo() {
     <section className="general-info">
       <h2>General Information</h2>
 
+      {/* display the form if isEditing === true */}
       {isEditing ? (
         <form>
           <div className="form-group">
@@ -72,6 +82,7 @@ export default function GeneralInfo() {
           <button onClick={submitInfo}>Submit</button>
         </form>
       ) : (
+        // otherwise, display the saved information after submission
         <div>
           <p>{info.name}</p>
           <p>{info.email}</p>
