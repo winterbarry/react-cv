@@ -4,6 +4,8 @@
 import { useState } from "react";
 import "./App.css";
 import GeneralInfo from "./components/general";
+import EducationInfo from "./components/education";
+import ExperienceInfo from "./components/experience";
 
 function App() {
   return (
@@ -11,6 +13,8 @@ function App() {
       <h1>CV Builder</h1>
 
       <GeneralInfo />
+      <EducationInfo />
+      <ExperienceInfo />
     </>
   );
 }

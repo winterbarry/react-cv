@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-export default function GeneralInfo() {
+export default function EducationInfo() {
   const [isEditing, setIsEditing] = useState(true);
 
   const [info, setInfo] = useState({
     name: "",
-    email: "",
-    phone: "",
+    title: "",
+    date: "",
   });
 
   function submitInfo(event) {
@@ -31,13 +31,13 @@ export default function GeneralInfo() {
   }
 
   return (
-    <section className="general-info">
-      <h2>General Information</h2>
+    <section className="education-info">
+      <h2>Education History</h2>
 
       {isEditing ? (
         <form>
           <div className="form-group">
-            <label htmlFor="name">Full Name</label>
+            <label htmlFor="name">School Name</label>
             <input
               type="text"
               id="name"
@@ -47,24 +47,26 @@ export default function GeneralInfo() {
             />
           </div>
 
+          {/* title */}
           <div className="form-group">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="title">Title of Study</label>
             <input
-              type="email"
-              id="email"
-              name="email"
-              value={info.email}
+              type="text"
+              id="title"
+              name="title"
+              value={info.title}
               onChange={handleChange}
             />
           </div>
 
+          {/* date */}
           <div className="form-group">
-            <label htmlFor="phone">Phone Number</label>
+            <label htmlFor="date">Date of Study</label>
             <input
-              type="tel"
-              id="phone"
-              name="phone"
-              value={info.phone}
+              type="date"
+              id="date"
+              name="date"
+              value={info.date}
               onChange={handleChange}
             />
           </div>
@@ -74,8 +76,8 @@ export default function GeneralInfo() {
       ) : (
         <div>
           <p>{info.name}</p>
-          <p>{info.email}</p>
-          <p>{info.phone}</p>
+          <p>{info.title}</p>
+          <p>{info.date}</p>
 
           <button onClick={editInfo}>Edit</button>
         </div>

@@ -1,12 +1,13 @@
 import { useState } from "react";
 
-export default function GeneralInfo() {
+export default function ExperienceInfo() {
   const [isEditing, setIsEditing] = useState(true);
 
   const [info, setInfo] = useState({
     name: "",
-    email: "",
-    phone: "",
+    title: "",
+    responsibility: "",
+    date: "",
   });
 
   function submitInfo(event) {
@@ -31,13 +32,14 @@ export default function GeneralInfo() {
   }
 
   return (
-    <section className="general-info">
-      <h2>General Information</h2>
+    <section className="education-info">
+      <h2>Education History</h2>
 
       {isEditing ? (
         <form>
+          {/* name */}
           <div className="form-group">
-            <label htmlFor="name">Full Name</label>
+            <label htmlFor="name">Company Name</label>
             <input
               type="text"
               id="name"
@@ -47,24 +49,38 @@ export default function GeneralInfo() {
             />
           </div>
 
+          {/* title */}
           <div className="form-group">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="title">Position Title</label>
             <input
-              type="email"
-              id="email"
-              name="email"
-              value={info.email}
+              type="text"
+              id="title"
+              name="title"
+              value={info.title}
               onChange={handleChange}
             />
           </div>
 
+          {/* responsibility */}
           <div className="form-group">
-            <label htmlFor="phone">Phone Number</label>
+            <label htmlFor="responsibility">Responsibilities</label>
             <input
-              type="tel"
-              id="phone"
-              name="phone"
-              value={info.phone}
+              type="text"
+              id="responsibility"
+              name="responsibility"
+              value={info.responsibility}
+              onChange={handleChange}
+            />
+          </div>
+
+          {/* date */}
+          <div className="form-group">
+            <label htmlFor="date">Date of Employment</label>
+            <input
+              type="date"
+              id="date"
+              name="date"
+              value={info.date}
               onChange={handleChange}
             />
           </div>
@@ -74,8 +90,9 @@ export default function GeneralInfo() {
       ) : (
         <div>
           <p>{info.name}</p>
-          <p>{info.email}</p>
-          <p>{info.phone}</p>
+          <p>{info.title}</p>
+          <p>{info.responsibility}</p>
+          <p>{info.date}</p>
 
           <button onClick={editInfo}>Edit</button>
         </div>
