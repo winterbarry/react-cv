@@ -1,0 +1,85 @@
+/* main CV section */
+.general-info {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.general-info h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #333;
+}
+
+/* form */
+.general-info form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.form-group input {
+  padding: 0.65rem;
+  font-size: 1rem;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+/* buttons */
+.general-info button {
+  align-self: flex-start;
+  padding: 0.7rem 1.4rem;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.general-info button:hover {
+  background: #555;
+}
+
+/* submitted CV view */
+.general-info .cv-header {
+  text-align: center;
+  border-bottom: 2px solid #333;
+  padding-bottom: 1rem;
+}
+
+.general-info .cv-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #222;
+}
+
+.general-info .contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 0.75rem;
+  color: #666;
+  font-size: 0.95rem;
+  flex-wrap: wrap;
+}

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../styles/experience.css";
 
 export default function ExperienceInfo() {
   // track whether the form is in edit mode or display mode
@@ -41,13 +42,12 @@ export default function ExperienceInfo() {
   }
 
   return (
-    <section className="education-info">
-      <h2>Education History</h2>
+    <section className="experience-info">
+      <h2>Work Experience</h2>
 
-      {/* render the form while the user is editing */}
       {isEditing ? (
-        <form>
-          <div className="form-group">
+        <form className="experience-form">
+          <div className="experience-form-group">
             <label htmlFor="name">Company Name</label>
             <input
               type="text"
@@ -58,7 +58,7 @@ export default function ExperienceInfo() {
             />
           </div>
 
-          <div className="form-group">
+          <div className="experience-form-group">
             <label htmlFor="title">Position Title</label>
             <input
               type="text"
@@ -69,7 +69,7 @@ export default function ExperienceInfo() {
             />
           </div>
 
-          <div className="form-group">
+          <div className="experience-form-group">
             <label htmlFor="responsibility">Responsibilities</label>
             <input
               type="text"
@@ -80,7 +80,7 @@ export default function ExperienceInfo() {
             />
           </div>
 
-          <div className="form-group">
+          <div className="experience-form-group">
             <label htmlFor="date">Date of Employment</label>
             <input
               type="date"
@@ -91,17 +91,20 @@ export default function ExperienceInfo() {
             />
           </div>
 
-          <button onClick={submitInfo}>Submit</button>
+          <button className="experience-submit-btn" onClick={submitInfo}>
+            Submit
+          </button>
         </form>
       ) : (
-        // display the saved information once the form is submitted
-        <div>
+        <div className="experience-display">
           <p>{info.name}</p>
           <p>{info.title}</p>
           <p>{info.responsibility}</p>
           <p>{info.date}</p>
 
-          <button onClick={editInfo}>Edit</button>
+          <button className="experience-edit-btn" onClick={editInfo}>
+            Edit
+          </button>
         </div>
       )}
     </section>

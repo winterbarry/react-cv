@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../styles/general.css";
 
 export default function GeneralInfo() {
   // controls whether the form or the submitted information is displayed
@@ -83,10 +84,13 @@ export default function GeneralInfo() {
         </form>
       ) : (
         // otherwise, display the saved information after submission
-        <div>
-          <p>{info.name}</p>
-          <p>{info.email}</p>
-          <p>{info.phone}</p>
+        <div className="cv-header">
+          <h1>{info.name}</h1>
+
+          <div className="contact-info">
+            <span>{info.email}</span>
+            <span>{info.phone}</span>
+          </div>
 
           <button onClick={editInfo}>Edit</button>
         </div>

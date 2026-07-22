@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../styles/education.css";
 
 export default function EducationInfo() {
   // controls whether the form or the submitted information is displayed
@@ -43,10 +44,9 @@ export default function EducationInfo() {
     <section className="education-info">
       <h2>Education History</h2>
 
-      {/* display the form while editing */}
       {isEditing ? (
-        <form>
-          <div className="form-group">
+        <form className="education-form">
+          <div className="education-form-group">
             <label htmlFor="name">School Name</label>
             <input
               type="text"
@@ -57,7 +57,7 @@ export default function EducationInfo() {
             />
           </div>
 
-          <div className="form-group">
+          <div className="education-form-group">
             <label htmlFor="title">Title of Study</label>
             <input
               type="text"
@@ -68,7 +68,7 @@ export default function EducationInfo() {
             />
           </div>
 
-          <div className="form-group">
+          <div className="education-form-group">
             <label htmlFor="date">Date of Study</label>
             <input
               type="date"
@@ -79,16 +79,19 @@ export default function EducationInfo() {
             />
           </div>
 
-          <button onClick={submitInfo}>Submit</button>
+          <button className="education-submit-btn" onClick={submitInfo}>
+            Submit
+          </button>
         </form>
       ) : (
-        // display the saved information after submission
-        <div>
+        <div className="education-display">
           <p>{info.name}</p>
           <p>{info.title}</p>
           <p>{info.date}</p>
 
-          <button onClick={editInfo}>Edit</button>
+          <button className="education-edit-btn" onClick={editInfo}>
+            Edit
+          </button>
         </div>
       )}
     </section>
